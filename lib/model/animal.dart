@@ -73,18 +73,18 @@ class Animal extends Equatable {
     return <String, dynamic>{
       'id': id,
       'name': name,
-      'latinName': latinName,
-      'animalType': animalType,
-      'activeTime': activeTime,
-      'lengthMin': lengthMin,
-      'lengthMax': lengthMax,
-      'weightMin': weightMin,
-      'weightMax': weightMax,
-      'lifeSpan': lifeSpan,
+      'latin_name': latinName,
+      'animal_type': animalType,
+      'active_time': activeTime,
+      'length_min': lengthMin,
+      'length_max': lengthMax,
+      'weight_min': weightMin,
+      'weight_max': weightMax,
+      'lifespan': lifeSpan,
       'habitat': habitat,
       'diet': diet,
-      'geoRange': geoRange,
-      'imageLink': imageLink,
+      'geo_range': geoRange,
+      'image_link': imageLink,
     };
   }
 
@@ -92,14 +92,24 @@ class Animal extends Equatable {
     return Animal(
       id: map['id'] != null ? map['id'] as int : null,
       name: map['name'] as String,
-      latinName: map['latin_name'] as String,
-      animalType: map['animal_type'] as String,
-      activeTime: map['active_time'] as String,
-      lengthMin: double.parse(map['length_min']).toDouble(),
-      lengthMax: double.parse(map['length_max']),
-      weightMin: double.parse(map['weight_min']),
-      weightMax: double.parse(map['weight_max']),
-      lifeSpan: int.parse(map['lifespan']),
+      latinName: map['latin_name'] as String ?? "",
+      animalType: map['animal_type'] as String ?? "",
+      activeTime: map['active_time'] as String ?? "",
+      lengthMin: (map['length_min'] is String)
+          ? double.parse(map['length_min']).toDouble()
+          : map['length_min'] as double,
+      lengthMax: (map['length_max'] is String)
+          ? double.parse(map['length_max']).toDouble()
+          : map['length_max'] as double,
+      weightMin: (map['weight_min'] is String)
+          ? double.parse(map['weight_min']).toDouble()
+          : map['weight_min'] as double,
+      weightMax: (map['weight_max'] is String)
+          ? double.parse(map['weight_max']).toDouble()
+          : map['weight_max'] as double,
+      lifeSpan: (map['lifespan'] is String)
+          ? int.parse(map['lifespan'])
+          : map['lifespan'] as int,
       habitat: map['habitat'] as String,
       diet: map['diet'] as String,
       geoRange: map['geo_range'] as String,

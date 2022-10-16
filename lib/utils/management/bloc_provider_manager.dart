@@ -19,7 +19,7 @@ class BlocProviderManager extends StatelessWidget {
         create: (context) => AnimalBloc(
           service: RepositoryProvider.of<AnimalService>(context),
         ),
-        lazy: false,
+        lazy: true,
       )
     ], child: child);
   }

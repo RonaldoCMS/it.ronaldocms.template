@@ -1,6 +1,7 @@
 part of 'counter_cubit.dart';
 
 abstract class CounterState extends Equatable {
+  
   final Number counter;
   const CounterState({required this.counter});
 
